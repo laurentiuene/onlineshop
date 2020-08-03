@@ -11,7 +11,8 @@ CREATE TABLE user (
   username varchar(45) UNIQUE NOT NULL,
   password varchar(100) NOT NULL,
   email varchar(45) UNIQUE NOT NULL,
-  full_name varchar(90) NOT NULL,
+  first_name varchar(45) NOT NULL,
+  last_name varchar(45) NOT NULL,
   city varchar(45) NOT NULL,
   address varchar(90) NOT NULL,
   phone varchar(15) NOT NULL,
@@ -38,7 +39,7 @@ CREATE TABLE product (
  product_category varchar(30) NOT NULL,
  product_description varchar(100) NOT NULL,
  product_specifications varchar(200) NOT NULL,
- product_price INT NOT NULL,
+ product_price FLOAT NOT NULL,
  product_image varchar(50) NULL
 );
 
@@ -62,15 +63,15 @@ CREATE TABLE stock (
  city varchar(45) NOT NULL
 );
 
-INSERT INTO user (username, password, email, full_name, city, address, phone, gender, birthday, start_date) VALUES
-  ('laur','primutilizator','laurreene@gmail.com','Ene Laurentiu-Mihail','Bucuresti','Strada Resita, nr.16, ap.4','0734839325','male','1995-11-08','2020-07-07'),
-  ('marcela','aldoileautilizator','u@u.u','Marcela Stroe','Arad','Strada Resita, nr.16, ap.4','0734839322','female','1994-12-08','2020-07-01')
+INSERT INTO user (username, password, email, first_name, last_name, city, address, phone, gender, birthday, start_date) VALUES
+  ('laur','primutilizator','laurreene@gmail.com','Laurentiu','Ene','Bucuresti','Strada Resita, nr.16, ap.4','0734839325','male','1995-11-08','2020-07-07'),
+  ('marcela','aldoileautilizator','u@u.u','Marcela','Stroe','Arad','Strada Resita, nr.16, ap.4','0734839322','female','1994-12-08','2020-07-01')
   ;
 
 INSERT INTO product (product_name, product_category, product_description, product_specifications, product_price, product_image) VALUES
-  ('KINGSTON_A400','STORAGE','Very good ssd','480 gb, 500mb/s writing, 520mb/s reading','310',''),
-  ('KINGSTON_UV400','STORAGE','Very good ssd','128 gb, 1200mb/s writing, 1333mb/s reading','390',''),
-  ('INTEL_660P','STORAGE','Very good ssd','980 gb, 2000mb/s writing, 2222mb/s reading','580','')
+  ('KINGSTON_A400','STORAGE','Very good ssd','480 gb, 500mb/s writing, 520mb/s reading','310.00',''),
+  ('KINGSTON_UV400','STORAGE','Very good ssd','128 gb, 1200mb/s writing, 1333mb/s reading','390.00',''),
+  ('INTEL_660P','STORAGE','Very good ssd','980 gb, 2000mb/s writing, 2222mb/s reading','580.00','')
   ;
 
 

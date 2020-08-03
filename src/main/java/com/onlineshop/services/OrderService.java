@@ -1,6 +1,7 @@
 package com.onlineshop.services;
 
 import com.onlineshop.client.PaymentApi;
+import com.onlineshop.dto.CardDetailsDto;
 import com.onlineshop.client.dto.PayerDto;
 import com.onlineshop.client.dto.ResponseStatusDto;
 import com.onlineshop.dto.OrderDto;
@@ -69,8 +70,18 @@ public class OrderService {
         return modelMapper.map(order, OrderDto.class);
     }
 
-    //TODO: get another type of DTO that has cardNumber, cardExpirationDate and cardCvv as fields
-    public ResponseStatusDto validatePayment(PayerDto payerDto){
+    public ResponseStatusDto validatePayment(CardDetailsDto cardDetailsDto, Integer userId, Integer cartId){
+        PayerDto payerDto = new PayerDto();
+        payerDto.setFirstName(userRepository.findById(userId).get().getFirstName());
+        payerDto.setLastName(userRepository.findById(userId).get().getLastName());
+        payerDto.setCardNumber(cardDetailsDto.getCardNumber());
+        payerDto.setCardExpiringDate(cardDetailsDto.getCardExpiringDate());
+        payerDto.setCardCvv(cardDetailsDto.getCardCvv());
+        Float cartPrice = cartService.getCartById(cartId).getCartItems().stream()
+                                    .map(cartItem -> cartItem.getProduct().getProductPrice())
+                                    .reduce((float) 0.0, Float::sum);
+
+        payerDto.setOrderValue(cartPrice);
         return paymentApi.paymentValidation(payerDto);
     }
 }
