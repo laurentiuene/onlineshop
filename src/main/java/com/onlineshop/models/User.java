@@ -26,13 +26,15 @@ public class User {
     @Column(name = "full_name")
     private String fullName;
 
+    private String city;
+
     private String address;
 
     @Column(name = "phone")
     private String phoneNumber;
 
     private String gender;
-    private Date birthday;
+    private LocalDate birthday;
 
     @Column(name = "start_date")
     private LocalDate startDate;

@@ -12,6 +12,7 @@ CREATE TABLE user (
   password varchar(100) NOT NULL,
   email varchar(45) UNIQUE NOT NULL,
   full_name varchar(90) NOT NULL,
+  city varchar(45) NOT NULL,
   address varchar(90) NOT NULL,
   phone varchar(15) NOT NULL,
   gender varchar(10) NULL,
@@ -21,7 +22,6 @@ CREATE TABLE user (
 
 CREATE TABLE cart (
  id_cart INT AUTO_INCREMENT PRIMARY KEY NOT NULL
--- id_user INT NOT NULL
 );
 
 CREATE TABLE cart_item (
@@ -62,9 +62,9 @@ CREATE TABLE stock (
  city varchar(45) NOT NULL
 );
 
-INSERT INTO user (username, password, email, full_name, address, phone, gender, birthday, start_date) VALUES
-  ('laur','primutilizator','laurreene@gmail.com','Ene Laurentiu-Mihail','Strada Resita, nr.16, ap.4','0734839325','male','1995-11-08','2020-07-07'),
-  ('marcela','aldoileautilizator','u@u.u','Marcela Stroe','Strada Resita, nr.16, ap.4','0734839322','female','1994-12-08','2020-07-01')
+INSERT INTO user (username, password, email, full_name, city, address, phone, gender, birthday, start_date) VALUES
+  ('laur','primutilizator','laurreene@gmail.com','Ene Laurentiu-Mihail','Bucuresti','Strada Resita, nr.16, ap.4','0734839325','male','1995-11-08','2020-07-07'),
+  ('marcela','aldoileautilizator','u@u.u','Marcela Stroe','Arad','Strada Resita, nr.16, ap.4','0734839322','female','1994-12-08','2020-07-01')
   ;
 
 INSERT INTO product (product_name, product_category, product_description, product_specifications, product_price, product_image) VALUES
@@ -78,7 +78,7 @@ INSERT INTO stock (id_product, quantity, city) VALUES
   ('1', '20', 'Bucuresti'),
   ('1', '20', 'Valcea'),
   ('1', '15', 'Tulcea'),
-  ('2', '33', 'Timisoara'),
+  ('2', '33', 'Bucuresti'),
   ('2', '18', 'Arad'),
   ('2', '0', 'Cluj')
   ;
