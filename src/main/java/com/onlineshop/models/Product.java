@@ -46,7 +46,6 @@ public class Product {
     private Set<OrderItem> orderItems;
 
     @JsonManagedReference(value = "stock")
-    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
-    private Set<Stock> stock;
+    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL)
+    private Stock stock;
 }

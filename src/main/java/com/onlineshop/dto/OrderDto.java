@@ -9,7 +9,7 @@ import java.util.Set;
 @Setter
 public class OrderDto {
     private Integer orderId;
-    private String status;
+    private OrderStatus status;
     private Integer userId;
     private Set<OrderItemDto> orderItems;
 }

@@ -20,12 +20,9 @@ public class Stock {
 
     private Integer quantity;
 
-    @Column(name = "city")
-    private String stockCity;
-
     @JsonBackReference(value = "stock")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id_product", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_product", referencedColumnName = "id_product")
     private Product product;
 }
 

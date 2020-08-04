@@ -42,7 +42,7 @@ public class ProductController {
 
     //Get stock for a product using the id
     @GetMapping("/stock/{id}")
-    public Set<Stock> getProductStock(@PathVariable Integer id){
+    public Stock getProductStock(@PathVariable Integer id){
         Product product = productService.getById(id);
         return product.getStock();
     }

@@ -59,8 +59,7 @@ CREATE TABLE order_item (
 CREATE TABLE stock (
  id_stock INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
  id_product INT NOT NULL,
- quantity INT NOT NULL,
- city varchar(45) NOT NULL
+ quantity INT NOT NULL
 );
 
 INSERT INTO user (username, password, email, first_name, last_name, city, address, phone, gender, birthday, start_date) VALUES
@@ -75,13 +74,9 @@ INSERT INTO product (product_name, product_category, product_description, produc
   ;
 
 
-INSERT INTO stock (id_product, quantity, city) VALUES
-  ('1', '20', 'Bucuresti'),
-  ('1', '20', 'Valcea'),
-  ('1', '15', 'Tulcea'),
-  ('2', '33', 'Bucuresti'),
-  ('2', '18', 'Arad'),
-  ('2', '0', 'Cluj')
+INSERT INTO stock (id_product, quantity) VALUES
+  ('1', '20'),
+  ('2', '33')
   ;
 
 
