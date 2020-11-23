@@ -31,7 +31,7 @@ public class UserController {
     }
 
     //Get carts for user with username = {username}
-    @GetMapping("/order/{username}")
+    @GetMapping("/{username}/order")
     public Set<Order> getOrder(@PathVariable String username){
         User currentUser = userService.getByUsername(username);
         return currentUser.getOrders();

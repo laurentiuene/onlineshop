@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS stock;
 DROP TABLE IF EXISTS order_item;
 DROP TABLE IF EXISTS cart_item;
 DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS review;
 DROP TABLE IF EXISTS product;
 DROP TABLE IF EXISTS cart;
 DROP TABLE IF EXISTS user;
@@ -62,6 +63,13 @@ CREATE TABLE stock (
  quantity INT NOT NULL
 );
 
+CREATE TABLE review (
+ id_review INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+ id_product INT NOT NULL,
+ id_user INT NOT NULL,
+ review_text varchar(100) NOT NULL
+);
+
 INSERT INTO user (username, password, email, first_name, last_name, city, address, phone, gender, birthday, start_date) VALUES
   ('laur','primutilizator','laurreene@gmail.com','Laurentiu','Ene','Bucuresti','Strada Resita, nr.16, ap.4','0734839325','male','1995-11-08','2020-07-07'),
   ('marcela','aldoileautilizator','u@u.u','Marcela','Stroe','Arad','Strada Resita, nr.16, ap.4','0734839322','female','1994-12-08','2020-07-01')
@@ -78,5 +86,12 @@ INSERT INTO stock (id_product, quantity) VALUES
   ('1', '20'),
   ('2', '33')
   ;
+
+
+INSERT INTO review(id_product, id_user, review_text) VALUES
+ ('1','1','Very good product.'),
+ ('1','2','Bad product.'),
+ ('2','1','An ok product.')
+ ;
 
 

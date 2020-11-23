@@ -1,8 +1,10 @@
 package com.onlineshop.controllers;
 
+import com.onlineshop.dto.ReviewDto;
 import com.onlineshop.models.Product;
 import com.onlineshop.models.Stock;
 import com.onlineshop.services.ProductService;
+import com.onlineshop.services.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +17,9 @@ public class ProductController {
 
     @Autowired
     private ProductService productService;
+
+    @Autowired
+    private ReviewService reviewService;
 
     //Get a product using the name
     @GetMapping
@@ -51,5 +56,12 @@ public class ProductController {
     @PutMapping("/{id}")
     public Product updateStock(@PathVariable Integer id, @RequestBody Product product){
         return productService.updateProductStock(id, product);
+    }
+
+    //Get reviews for product
+    @GetMapping("/{id}/reviews")
+    public Set<ReviewDto> getProductReview(@PathVariable Integer id){
+        Product product = productService.getById(id);
+        return reviewService.mapReviewToReviewDto(product.getReviews());
     }
 }

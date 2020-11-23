@@ -48,4 +48,9 @@ public class Product {
     @JsonManagedReference(value = "stock")
     @OneToOne(mappedBy = "product", cascade = CascadeType.ALL)
     private Stock stock;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Set<Review> reviews;
 }
